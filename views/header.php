@@ -32,7 +32,12 @@
       </li>
     </ul>
     <div class="form-inline my-2 my-lg-0">
-      <button class="btn btn-outline-success my-2 my-sm-0"  data-toggle="modal" data-target="#myModal">Login/Sign up</button>
+      <?php  if ($_SESSION['id']) { ?>
+
+          <a class="btn btn-outline-" href="?function=logout">Logout</a>
+      <?php } else { ?>
+      <button class="btn btn-outline-success my-2 my-sm-0"  data-toggle="modal" data-target="#myModal">Login/Signup</button>
+      <?php } ?>
     </div>
   </div>
 </nav>

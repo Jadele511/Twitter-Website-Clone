@@ -1,6 +1,12 @@
-#toggleButton {
+#toggleLogin {
 
-  margin-right: 5px;
+  padding-right: 10px;
+}
+
+#loginAlert {
+
+  display:none;
+
 }
 
 /* Sticky footer styles
