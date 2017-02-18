@@ -11,10 +11,10 @@ if ($_GET['function'] == "logout") {
 
 function time_since($since) {
     $chunks = array(
-        array(60 * 60 * 24 * 365 , 'year'),
-        array(60 * 60 * 24 * 30 , 'month'),
-        array(60 * 60 * 24 * 7, 'week'),
-        array(60 * 60 * 24 , 'day'),
+        array(60 * 60 * 4 * 365 , 'year'),
+        array(60 * 60 * 4 * 30 , 'month'),
+        array(60 * 60 * 4 * 7, 'week'),
+        array(60 * 60 * 4 , 'day'),
         array(60 * 60 , 'hour'),
         array(60 , 'min'),
         array(1 , 's')
@@ -52,6 +52,9 @@ function displayTweets($type) {
       if ($whereClause == "") $whereClause = "WHERE" ;
       else $whereClause .= " OR";
       $whereClause .= " userid = ".$row['isFollowing'];
+    } else if($type == 'yourtweets') {
+
+      $whereClause = "WHERE userid = ".mysqli_real_escape_string($link, $_SESSION['id']);
     }
 
 
@@ -100,7 +103,7 @@ function displayTweets($type) {
 function displaySearch() {
 
   echo '<div class="form-inline">
-  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="search" placeholder="Search">
+  <input type="text" class="form-control mb- mr-sm- mb-sm-0" id="search" placeholder="Search">
   <button  class="btn btn-primary">Search Tweets</button>
 </div>';
 
@@ -109,12 +112,14 @@ function displaySearch() {
 function displayTweetBox() {
 
   if ($_SESSION['id'] > 0 ) {
-    echo '<form class="form">
+    echo '<div id="tweetSuccess" class="alert alert-success">Your tweet was posted successfully</div>
+    <div id="tweetFail" class="alert alert-danger"></div>
+    <div class="form">
       <div class="form-group">
         <textarea type="text" class="form-control " id="tweetContent"></textarea>
       </div>
-      <button  class="btn btn-primary">Post Tweet</button>
-  </form>';
+      <button class="btn btn-primary" id="postTweetButton">Post Tweet</button>
+  </div>';
 }
 
 }

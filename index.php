@@ -8,6 +8,10 @@ if ($_GET['page'] == "timeline") {
 
   include ("views/timeline.php");
 
+} else if ($_GET['page'] == "yourtweets") {
+
+  include ("views/yourtweets.php");
+
 } else {
 
 include("views/home.php");
