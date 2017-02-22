@@ -1,2 +1,2 @@
 # Twitter-Website-Clone 
-Here is the walkthrough: ![](twitter.gif)
+Here is the walkthrough: ![image](twitter.gif)
