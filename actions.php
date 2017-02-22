@@ -90,7 +90,7 @@
 
 }
 
-if ($_GET['action'] = 'toggleFollow') {
+if ($_GET['action'] == 'toggleFollow') {
    $query = "SELECT * from `isFollowing` WHERE follower = '".mysqli_real_escape_string($link, $_SESSION['id'])."' AND isFollowing = '".mysqli_real_escape_string($link, $_POST['userId'])."' LIMIT 1 ";
 
   $result = mysqli_query($link, $query);
@@ -112,7 +112,7 @@ if ($_GET['action'] = 'toggleFollow') {
 
 }
 
-if ($_GET['action'] = 'postTweet') {
+if ($_GET['action'] == 'postTweet') {
 
   if (!$_POST['tweetContent']) {
 
